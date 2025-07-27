@@ -1,0 +1,25 @@
+# Ignore build artifacts
+/bin/
+/build/
+/dist/
+
+# Ignore generated Go files (if you DON'T commit them)
+# Uncomment if you generate in local only
+# gen/*.pb.go
+# gen/**/*.pb.go
+
+# Go modules cache
+go.sum
+
+# Ignore temporary files
+*.log
+*.tmp
+*.swp
+
+# IDE/editor specific
+.vscode/
+.idea/
+.DS_Store
+
+# Ignore OS files
+Thumbs.db
