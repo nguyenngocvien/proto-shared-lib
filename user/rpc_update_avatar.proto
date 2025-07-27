@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+
+message UpdateAvatarRequest {
+  string username = 1;
+  bytes avatar = 2;  // The avatar file content as a byte stream
+  string file_name = 3;  // The file name
+}
+
+message UpdateAvatarResponse {
+  bool success = 1;
+  string message = 2;
+}

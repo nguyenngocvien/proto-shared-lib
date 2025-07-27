@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+
+message LogoutRequest {
+    string refresh_token = 1;
+}
+
+message LogoutResponse {
+    string message = 1;
+}

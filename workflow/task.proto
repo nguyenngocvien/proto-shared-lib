@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package workflow;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+
+message TaskInfo {
+    string task_id = 1;
+    string workflow_id = 2;
+    string step_name = 3;
+    string assigned_to = 4;
+    repeated string candidate_users = 5;
+    repeated string candidate_groups = 6;
+    map<string, string> data = 7;
+    string status = 8; // e.g., "NEW", "CLAIMED", "COMPLETED"
+}

@@ -1,0 +1,206 @@
+syntax = "proto3";
+package user;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+import "user/rpc_register.proto";
+import "user/rpc_verify_email.proto";
+import "user/rpc_create_user.proto";
+import "user/rpc_login.proto";
+import "user/rpc_logout.proto";
+import "user/rpc_get_user.proto";
+import "user/rpc_query_users.proto";
+import "user/rpc_update_user.proto";
+import "user/rpc_change_password.proto";
+import "user/rpc_update_avatar.proto";
+import "user/rpc_get_avatar.proto";
+import "user/rpc_search_users.proto";
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+
+service UserService {
+    rpc Register(RegisterRequest) returns (RegisterResponse) {
+        option (google.api.http) = {
+            post: "/v1/users/register"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Register a new user"
+            description: "Creates a new user account with the provided credentials and information."
+            tags: ["User"]
+        };
+    }
+
+    rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse) {
+        option (google.api.http) = {
+            get: "/v1/users/verify"
+            additional_bindings: {
+            post: "/v1/users/verify"
+            body: "*"
+            }
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Verify email address"
+            description: "Use this API to verify user email."
+            tags: ["User"]
+        };
+    }
+
+    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {
+        option (google.api.http) = {
+            post: "/v1/users"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Create new user";
+            description: "Use this API to create a new user";
+            tags: ["User"];
+            security: {
+                security_requirement: {
+                    key: "BearerAuth";
+                };
+            };
+        };
+    }
+
+    rpc Login (LoginRequest) returns (LoginResponse) {
+        option (google.api.http) = {
+            post: "/v1/users/login"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Login user";
+            description: "Use this API to login user";
+            tags: ["User"];
+        };
+    }
+
+    rpc Logout (LogoutRequest) returns (LogoutResponse) {
+        option (google.api.http) = {
+            post: "/v1/users/logout"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Logout user";
+            description: "Use this API to logout user";
+            tags: ["User"];
+        };
+    }
+
+    rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {
+        option (google.api.http) = {
+            patch: "/v1/users/{username}/profile"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Update user";
+            description: "Use this API to update user";
+            tags: ["User"];
+            security: {
+                security_requirement: {
+                    key: "BearerAuth";
+                };
+            };
+        };
+    }
+
+    rpc ChangePassword (ChangePasswordRequest) returns (ChangePasswordResponse) {
+        option (google.api.http) = {
+            patch: "/v1/users/{username}/credentials"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Update user credentials";
+            description: "Use this API to update user credentials";
+            tags: ["User"];
+            security: {
+                security_requirement: {
+                    key: "BearerAuth";
+                };
+            };
+        };
+    }
+
+    rpc GetUser (GetUserRequest) returns (GetUserResponse) {
+        option (google.api.http) = {
+            get: "/v1/users/{username}/profile"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get user information";
+            description: "Use this API to retrieve user information";
+            tags: ["User"];
+            security: {
+                security_requirement: {
+                    key: "BearerAuth";
+                };
+            };
+        };
+    }
+
+    rpc GetUsers (QueryUserRequest) returns (QueryUserResponse) {
+        option (google.api.http) = {
+            get: "/v1/users"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get list of users";
+            description: "Use this API to retrieve list of users";
+            tags: ["User"];
+            security: {
+                security_requirement: {
+                    key: "BearerAuth";
+                };
+            };
+        };
+    }
+
+    rpc UpdateAvatar(UpdateAvatarRequest) returns (UpdateAvatarResponse) {
+        option (google.api.http) = {
+            patch: "/v1/users/{username}/avatar"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Update user avatar";
+            description: "Use this API to update user avatar";
+            tags: ["User"];
+            security: {
+                security_requirement: {
+                    key: "BearerAuth";
+                };
+            };
+        };
+    }
+
+    rpc GetAvatar(GetAvatarRequest) returns (GetAvatarResponse) {
+        option (google.api.http) = {
+            get: "/v1/users/{username}/avatar"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get user avatar";
+            description: "Use this API to retrieve user avatar";
+            tags: ["User"];
+            security: {
+                security_requirement: {
+                    key: "BearerAuth";
+                };
+            };
+        };
+    }
+
+    rpc SearchUser(SearchUserRequest) returns (SearchUserResponse) {
+        option (google.api.http) = {
+            post: "/v1/users/search"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Search users";
+            description: "Search users by query (username, full name, email, or phone number)";
+            tags: ["User"];
+            security: {
+                security_requirement: {
+                    key: "BearerAuth";
+                };
+            };
+        };
+    }
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package group;
+
+import "group/group.proto";
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/group";
+
+message CreateGroupRequest {
+    string name = 1;
+    string type = 2;
+    string description = 3;
+}
+
+message CreateGroupResponse {
+    Group group = 1;
+}

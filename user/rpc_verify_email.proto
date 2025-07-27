@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+
+message VerifyEmailRequest {
+    string token = 1; // mã xác thực từ email
+}
+
+message VerifyEmailResponse {
+    string message = 1; // ví dụ: "Email verified successfully"
+}

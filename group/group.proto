@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package group;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/group";
+
+message Group {
+    int64 id = 1;
+    string name = 2;
+    string type = 3;
+    string description = 4;
+}

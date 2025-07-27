@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/chat";
+
+message SearchMessagesRequest {
+  string q = 1; // Query string (search keyword)
+}
+
+message SearchedMessage {
+  string id = 1;
+  string chat_id = 2;
+  string chat_name = 3;
+  string content = 4;
+  string timestamp = 5; // ISO format
+}
+
+message SearchMessagesResponse {
+  repeated SearchedMessage messages = 1;
+}

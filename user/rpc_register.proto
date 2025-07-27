@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+
+import "user/user.proto";
+
+message RegisterRequest {
+    string username = 1;
+    string password = 2;
+    string first_name = 3;
+    string last_name = 4;
+    string email = 5;
+}
+
+message RegisterResponse {
+    User user = 1;
+}

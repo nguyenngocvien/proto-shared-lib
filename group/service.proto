@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package group;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+import "group/rpc_search_groups.proto";
+import "group/rpc_create_group.proto";
+import "group/rpc_delete_group.proto";
+import "group/rpc_add_members.proto";
+import "group/rpc_get_group_members.proto";
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/group";
+
+service GroupService {
+  rpc GetGroups (SearchGroupsRequest) returns (SearchGroupsResponse) {
+    option (google.api.http) = {
+      get: "/v1/groups"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      description: "Retrieve a list of all groups";
+      summary: "Get groups";
+      tags: ["Group"];
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      };
+    };
+  }
+
+  rpc CreateGroup (CreateGroupRequest) returns (CreateGroupResponse) {
+    option (google.api.http) = {
+      post: "/v1/groups"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      description: "Create a new group";
+      summary: "Create group";
+      tags: ["Group"];
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      };
+    };
+  }
+
+  rpc DeleteGroup (DeleteGroupRequest) returns (DeleteGroupResponse) {
+    option (google.api.http) = {
+      delete: "/v1/groups/{id}";
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      description: "Delete a group by its ID";
+      summary: "Delete group";
+      tags: ["Group"];
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      };
+    };
+  }
+
+  rpc AddMembersToGroup (AddMembersRequest) returns (AddMembersResponse) {
+    option (google.api.http) = {
+      post: "/v1/groups/{group_id}/members"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      description: "Add one or more members to a specific group";
+      summary: "Add members to group";
+      tags: ["Group"];
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      };
+    };
+  }
+
+  rpc GetGroupMembers (GetGroupMembersRequest) returns (GetGroupMembersResponse) {
+    option (google.api.http) = {
+      get: "/v1/groups/{group_id}/members"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      description: "Retrieve a list of members for a specific group";
+      summary: "Get group members";
+      tags: ["Group"];
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      };
+    };
+  }
+}

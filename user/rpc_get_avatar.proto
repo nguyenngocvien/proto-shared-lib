@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+
+message GetAvatarRequest {
+  string username = 1;  // The user ID (personId)
+}
+
+message GetAvatarResponse {
+  bytes avatar = 1;  // The avatar image content as a byte stream
+  string content_type = 2;  // The content type of the image (e.g., image/jpeg)
+}

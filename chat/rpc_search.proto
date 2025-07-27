@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/chat";
+
+import "chat/rpc_chat.proto";
+
+message SearchChatRequest {
+    string query = 1;
+}
+
+message SearchChatResponse {
+  repeated ChatUser users = 1;
+  repeated ChatMessage messages = 2;
+}
+

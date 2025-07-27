@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+
+import "user/user.proto";
+
+message SearchUserRequest {
+    string query = 1;
+}
+
+message SearchUserResponse {
+    repeated User users = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package workflow;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+
+message ClaimTaskRequest {
+    string task_id = 1;
+    string user_id = 2;
+}
+
+message ClaimTaskResponse {
+    string status = 1;
+}

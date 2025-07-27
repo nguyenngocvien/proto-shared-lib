@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/chat";
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+import "chat/rpc_search.proto";
+import "chat/rpc_get_chats_by_user_id.proto";
+import "chat/rpc_create_group.proto";
+import "chat/rpc_get_messages_by_chat_id.proto";
+import "chat/rpc_send_mesage.proto";
+import "chat/rpc_search_messages.proto";
+
+service ChatService {
+  rpc SearchChat(SearchChatRequest) returns (SearchChatResponse) {
+    option (google.api.http) = {
+      get: "/v1/chats/search"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Search users and messages"
+      description: "Return list of user and messages"
+      tags: ["Chat"]
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      }
+    };
+  }
+
+  rpc GetChatsByUserID(GetChatsByUserIDRequest) returns (GetChatsByUserIDResponse) {
+    option (google.api.http) = {
+      get: "/v1/chats/user/{user_id}"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Get all chat rooms by user ID"
+      description: "Returns chat rooms including participants, unread message count, and last message"
+      tags: ["Chat"]
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      }
+    };
+  }
+
+  rpc CreateGroup(CreateGroupRequest) returns (CreateGroupResponse) {
+    option (google.api.http) = {
+      post: "/v1/chats/group"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Create a group chat"
+      description: "Creates a new group chat with the given name, type, and list of participant user IDs"
+      tags: ["Chat"]
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      }
+    };
+  }
+
+  rpc GetMessagesByChatID(GetMessagesByChatIDRequest) returns (GetMessagesByChatIDResponse) {
+    option (google.api.http) = {
+      get: "/v1/chats/{chat_id}/messages"
+      additional_bindings: {
+        get: "/v1/messages"
+      }
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Get messages in a chat"
+      description: "Fetches a paginated list of messages by chat ID. Returns messages in reverse chronological order."
+      tags: ["Chat"]
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      }
+    };
+  }
+
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse) {
+    option (google.api.http) = {
+      post: "/v1/messages"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Send a chat message"
+      description: "Sends a message from a user to another user and returns confirmation."
+      tags: ["Message"]
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      }
+    };
+  }
+  
+  rpc SearchMessages(SearchMessagesRequest) returns (SearchMessagesResponse) {
+    option (google.api.http) = {
+      get: "/v1/messages/search"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Search messages"
+      description: "Search for messages containing a given keyword within chats the user participates in."
+      tags: ["Message"]
+      security: {
+        security_requirement: {
+          key: "BearerAuth"
+        }
+      }
+    };
+  }
+}

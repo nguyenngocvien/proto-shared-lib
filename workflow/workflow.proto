@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+package workflow;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+import "workflow/rpc_start_process.proto";
+import "workflow/rpc_get_tasks.proto";
+import "workflow/rpc_claim_task.proto";
+import "workflow/rpc_complete_task.proto";
+import "workflow/rpc_assign_task.proto";
+import "workflow/rpc_workflow_status.proto";
+import "workflow/rpc_cancel_workflow.proto";
+import "workflow/rpc_task_history.proto";
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+
+service WorkflowService {
+    // 1. Start a new process instance by process ID
+    rpc StartProcess (StartProcessRequest) returns (StartProcessResponse) {
+        option (google.api.http) = {
+            post: "/api/workflow/start"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Start a new workflow process"
+            description: "Starts a Temporal workflow using the given process ID and variables."
+            tags: "Workflow"
+        };
+    }
+
+    // 2. Get tasks assigned to a user or group
+    rpc GetTasks (GetTasksRequest) returns (GetTasksResponse) {
+        option (google.api.http) = {
+            get: "/api/tasks"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get tasks assigned to user or group"
+            description: "Returns tasks assigned to the given user or their groups."
+            tags: "Task"
+        };
+    }
+
+    // 3. Claim a task
+    rpc ClaimTask (ClaimTaskRequest) returns (ClaimTaskResponse) {
+        option (google.api.http) = {
+            post: "/api/task/{task_id}/claim"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Claim a task"
+            description: "User claims a task to work on it."
+            tags: "Task"
+        };
+    }
+
+    // 4. Complete a task
+    rpc CompleteTask (CompleteTaskRequest) returns (CompleteTaskResponse) {
+        option (google.api.http) = {
+            post: "/api/task/{task_id}/complete"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Complete a task"
+            description: "Completes a task with user-provided data."
+            tags: "Task"
+        };
+    }
+
+    // 5. Assign task to user or group
+    rpc AssignTask (AssignTaskRequest) returns (AssignTaskResponse) {
+        option (google.api.http) = {
+            post: "/api/task/{task_id}/assign"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Assign task to user or group"
+            description: "Assigns task to a specific user or group."
+            tags: "Task"
+        };
+    }
+
+    // 6. Get current status of workflow
+    rpc GetWorkflowStatus (WorkflowStatusRequest) returns (WorkflowStatusResponse) {
+        option (google.api.http) = {
+            get: "/api/workflow/{workflow_id}/status"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get workflow status"
+            description: "Fetch current status and step of workflow execution."
+            tags: "Workflow"
+        };
+    }
+
+    // 7. Cancel workflow
+    rpc CancelWorkflow (CancelWorkflowRequest) returns (CancelWorkflowResponse) {
+        option (google.api.http) = {
+            delete: "/api/workflow/{workflow_id}/cancel"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Cancel a workflow"
+            description: "Cancels a running workflow."
+            tags: "Workflow"
+        };
+    }
+
+    // 8. Get task history for user
+    rpc GetTaskHistory (TaskHistoryRequest) returns (TaskHistoryResponse) {
+        option (google.api.http) = {
+            get: "/api/tasks/history"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get task history for user"
+            description: "Returns completed tasks of user."
+            tags: "Task"
+        };
+    }
+}

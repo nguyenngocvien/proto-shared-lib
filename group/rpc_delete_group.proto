@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package group;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/group";
+
+message DeleteGroupRequest {
+    int64 id = 1;
+}
+
+message DeleteGroupResponse {}

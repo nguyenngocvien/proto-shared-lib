@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package workflow;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+
+message CancelWorkflowRequest {
+    string workflow_id = 1;
+}
+
+message CancelWorkflowResponse {
+    string status = 1;
+}

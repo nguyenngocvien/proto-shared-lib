@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/chat";
+
+message ChatUser {
+    string username = 1;
+    string full_name = 2;
+    string avatar = 3;
+}
+
+message ChatMessage {
+    int64 id = 1;
+    string sender = 2;
+    string receiver = 3;
+    string content = 4;
+    int64 sent_at = 5;
+}

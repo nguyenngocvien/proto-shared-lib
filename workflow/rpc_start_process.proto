@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package workflow;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+
+message StartProcessRequest {
+    string process_id = 1;
+    string business_key = 2;  // optional
+    map<string, string> variables = 3;
+}
+
+message StartProcessResponse {
+    string workflow_id = 1;
+}

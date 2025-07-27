@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package workflow;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+
+message CompleteTaskRequest {
+    string task_id = 1;
+    map<string, string> data = 2;
+}
+
+message CompleteTaskResponse {
+    string status = 1;
+}

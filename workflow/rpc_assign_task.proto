@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package workflow;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+
+message AssignTaskRequest {
+    string task_id = 1;
+    string user_id = 2;
+    string group_id = 3; // optional
+}
+
+message AssignTaskResponse {
+    string status = 1;
+}

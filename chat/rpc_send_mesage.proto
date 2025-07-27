@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package chat;
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/chat";
+
+import "chat/rpc_chat.proto";
+
+message SendMessageRequest {
+  ChatMessage message = 1;
+}
+
+message SendMessageResponse {
+  bool success = 1;
+}

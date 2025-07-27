@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/chat";
+
+message CreateGroupRequest {
+  string name = 1;
+  string type = 2; // expected to be "group"
+  repeated string participants = 3;
+}
+
+message Chat {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+}
+
+message CreateGroupResponse {
+  Chat chat = 1;
+}

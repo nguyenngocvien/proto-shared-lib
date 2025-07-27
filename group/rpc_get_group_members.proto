@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package group;
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/group";
+
+message GetGroupMembersRequest {
+    string group_id = 1;
+}
+
+message GetGroupMembersResponse {
+    repeated string user_id = 1;
+}

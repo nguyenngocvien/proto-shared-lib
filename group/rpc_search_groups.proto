@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package group;
+
+import "group/group.proto";
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/group";
+
+message SearchGroupsRequest {
+    string name = 1;
+}
+
+message SearchGroupsResponse {
+    repeated Group groups = 1;
+}

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package user;
+
+import "user/user.proto";
+
+option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+
+message QueryUserRequest {
+    string username = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    string phoneNumber = 5;
+    string memberOfGroup = 6;
+    string sortBy = 7;
+    string sortOrder = 8;
+    int32 firstResult = 9;
+    int32 maxResult = 10;
+}
+
+message QueryUserResponse {
+    repeated User users = 1;
+}
