@@ -139,7 +139,7 @@ const file_workflow_task_proto_rawDesc = "" +
 	"\x06status\x18\b \x01(\tR\x06status\x1a7\n" +
 	"\tDataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B9Z7github.com/nguyenngocvien/vcore-stack/proto/gen/worflowb\x06proto3"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B9Z7github.com/nguyenngocvien/vcore-stack-proto/gen/worflowb\x06proto3"
 
 var (
 	file_workflow_task_proto_rawDescOnce sync.Once

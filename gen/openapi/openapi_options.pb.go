@@ -34,7 +34,7 @@ const file_openapi_openapi_options_proto_rawDesc = "" +
 	"BearerAuth\x12`\b\x02\x12KJWT token using the Bearer scheme. Example: 'Authorization: Bearer {token}'\x1a\rAuthorization \x02b\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00Z3github.com/nguyenngocvien/vcore-stack/proto/openapib\x06proto3"
+	"BearerAuth\x12\x00Z3github.com/nguyenngocvien/vcore-stack-proto/openapib\x06proto3"
 
 var file_openapi_openapi_options_proto_goTypes = []any{}
 var file_openapi_openapi_options_proto_depIdxs = []int32{

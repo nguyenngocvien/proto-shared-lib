@@ -4,7 +4,7 @@ package workflow;
 
 import "workflow/task.proto";
 
-option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+option go_package = "github.com/nguyenngocvien/vcore-stack-proto/gen/worflow";
 
 message TaskHistoryRequest {
     string user_id = 1;

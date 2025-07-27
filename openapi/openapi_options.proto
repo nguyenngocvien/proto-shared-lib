@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package openapi;
 
-option go_package = "github.com/nguyenngocvien/vcore-stack/proto/openapi";
+option go_package = "github.com/nguyenngocvien/vcore-stack-proto/openapi";
 
 import "protoc-gen-openapiv2/options/annotations.proto";
 

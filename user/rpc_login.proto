@@ -3,7 +3,7 @@ syntax = "proto3";
 package user;
 
 import "user/user.proto";
-option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+option go_package = "github.com/nguyenngocvien/vcore-stack-proto/gen/user";
 
 message LoginRequest {
     string username = 1;

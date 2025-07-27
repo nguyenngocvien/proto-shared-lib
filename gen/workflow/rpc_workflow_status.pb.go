@@ -136,7 +136,7 @@ const file_workflow_rpc_workflow_status_proto_rawDesc = "" +
 	"\x16WorkflowStatusResponse\x12\x15\n" +
 	"\x06run_id\x18\x01 \x01(\tR\x05runId\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x12!\n" +
-	"\fcurrent_step\x18\x03 \x01(\tR\vcurrentStepB9Z7github.com/nguyenngocvien/vcore-stack/proto/gen/worflowb\x06proto3"
+	"\fcurrent_step\x18\x03 \x01(\tR\vcurrentStepB9Z7github.com/nguyenngocvien/vcore-stack-proto/gen/worflowb\x06proto3"
 
 var (
 	file_workflow_rpc_workflow_status_proto_rawDescOnce sync.Once

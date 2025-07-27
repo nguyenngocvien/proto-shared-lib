@@ -117,7 +117,7 @@ const file_chat_rpc_send_mesage_proto_rawDesc = "" +
 	"\x12SendMessageRequest\x12+\n" +
 	"\amessage\x18\x01 \x01(\v2\x11.chat.ChatMessageR\amessage\"/\n" +
 	"\x13SendMessageResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccessB6Z4github.com/nguyenngocvien/vcore-stack/proto/gen/chatb\x06proto3"
+	"\asuccess\x18\x01 \x01(\bR\asuccessB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/chatb\x06proto3"
 
 var (
 	file_chat_rpc_send_mesage_proto_rawDescOnce sync.Once

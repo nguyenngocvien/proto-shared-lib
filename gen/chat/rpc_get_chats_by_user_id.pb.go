@@ -345,7 +345,7 @@ const file_chat_rpc_get_chats_by_user_id_proto_rawDesc = "" +
 	"\x17GetChatsByUserIDRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\"D\n" +
 	"\x18GetChatsByUserIDResponse\x12(\n" +
-	"\x05chats\x18\x01 \x03(\v2\x12.chat.ChatResponseR\x05chatsB6Z4github.com/nguyenngocvien/vcore-stack/proto/gen/chatb\x06proto3"
+	"\x05chats\x18\x01 \x03(\v2\x12.chat.ChatResponseR\x05chatsB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/chatb\x06proto3"
 
 var (
 	file_chat_rpc_get_chats_by_user_id_proto_rawDescOnce sync.Once

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package group;
 
-option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/group";
+option go_package = "github.com/nguyenngocvien/vcore-stack-proto/gen/group";
 
 message GetGroupMembersRequest {
     string group_id = 1;

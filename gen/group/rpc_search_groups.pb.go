@@ -117,7 +117,7 @@ const file_group_rpc_search_groups_proto_rawDesc = "" +
 	"\x13SearchGroupsRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\"<\n" +
 	"\x14SearchGroupsResponse\x12$\n" +
-	"\x06groups\x18\x01 \x03(\v2\f.group.GroupR\x06groupsB7Z5github.com/nguyenngocvien/vcore-stack/proto/gen/groupb\x06proto3"
+	"\x06groups\x18\x01 \x03(\v2\f.group.GroupR\x06groupsB7Z5github.com/nguyenngocvien/vcore-stack-proto/gen/groupb\x06proto3"
 
 var (
 	file_group_rpc_search_groups_proto_rawDescOnce sync.Once

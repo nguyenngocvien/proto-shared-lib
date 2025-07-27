@@ -173,7 +173,7 @@ const file_user_rpc_login_proto_rawDesc = "" +
 	"\faccess_token\x18\x03 \x01(\tR\vaccessToken\x12#\n" +
 	"\rrefresh_token\x18\x04 \x01(\tR\frefreshToken\x125\n" +
 	"\x17access_token_expires_at\x18\x05 \x01(\tR\x14accessTokenExpiresAt\x127\n" +
-	"\x18refresh_token_expires_at\x18\x06 \x01(\tR\x15refreshTokenExpiresAtB6Z4github.com/nguyenngocvien/vcore-stack/proto/gen/userb\x06proto3"
+	"\x18refresh_token_expires_at\x18\x06 \x01(\tR\x15refreshTokenExpiresAtB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_login_proto_rawDescOnce sync.Once

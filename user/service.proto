@@ -17,7 +17,7 @@ import "user/rpc_update_avatar.proto";
 import "user/rpc_get_avatar.proto";
 import "user/rpc_search_users.proto";
 
-option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/user";
+option go_package = "github.com/nguyenngocvien/vcore-stack-proto/gen/user";
 
 service UserService {
     rpc Register(RegisterRequest) returns (RegisterResponse) {

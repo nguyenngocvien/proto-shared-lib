@@ -14,7 +14,7 @@ import "workflow/rpc_workflow_status.proto";
 import "workflow/rpc_cancel_workflow.proto";
 import "workflow/rpc_task_history.proto";
 
-option go_package = "github.com/nguyenngocvien/vcore-stack/proto/gen/worflow";
+option go_package = "github.com/nguyenngocvien/vcore-stack-proto/gen/worflow";
 
 service WorkflowService {
     // 1. Start a new process instance by process ID

@@ -117,7 +117,7 @@ const file_group_rpc_add_members_proto_rawDesc = "" +
 	"\x11AddMembersRequest\x12\x19\n" +
 	"\bgroup_id\x18\x01 \x01(\x03R\agroupId\x12\x19\n" +
 	"\buser_ids\x18\x02 \x03(\tR\auserIds\"\x14\n" +
-	"\x12AddMembersResponseB7Z5github.com/nguyenngocvien/vcore-stack/proto/gen/groupb\x06proto3"
+	"\x12AddMembersResponseB7Z5github.com/nguyenngocvien/vcore-stack-proto/gen/groupb\x06proto3"
 
 var (
 	file_group_rpc_add_members_proto_rawDescOnce sync.Once

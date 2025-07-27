@@ -155,7 +155,7 @@ const file_user_rpc_register_proto_rawDesc = "" +
 	"\x05email\x18\x05 \x01(\tR\x05email\"2\n" +
 	"\x10RegisterResponse\x12\x1e\n" +
 	"\x04user\x18\x01 \x01(\v2\n" +
-	".user.UserR\x04userB6Z4github.com/nguyenngocvien/vcore-stack/proto/gen/userb\x06proto3"
+	".user.UserR\x04userB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_register_proto_rawDescOnce sync.Once

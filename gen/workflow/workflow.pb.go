@@ -45,7 +45,7 @@ const file_workflow_workflow_proto_rawDesc = "" +
 	"\x0eCancelWorkflow\x12\x1f.workflow.CancelWorkflowRequest\x1a .workflow.CancelWorkflowResponse\"g\x92A:\n" +
 	"\bWorkflow\x12\x11Cancel a workflow\x1a\x1bCancels a running workflow.\x82\xd3\xe4\x93\x02$*\"/api/workflow/{workflow_id}/cancel\x12\xaf\x01\n" +
 	"\x0eGetTaskHistory\x12\x1c.workflow.TaskHistoryRequest\x1a\x1d.workflow.TaskHistoryResponse\"`\x92AC\n" +
-	"\x04Task\x12\x19Get task history for user\x1a Returns completed tasks of user.\x82\xd3\xe4\x93\x02\x14\x12\x12/api/tasks/historyB9Z7github.com/nguyenngocvien/vcore-stack/proto/gen/worflowb\x06proto3"
+	"\x04Task\x12\x19Get task history for user\x1a Returns completed tasks of user.\x82\xd3\xe4\x93\x02\x14\x12\x12/api/tasks/historyB9Z7github.com/nguyenngocvien/vcore-stack-proto/gen/worflowb\x06proto3"
 
 var file_workflow_workflow_proto_goTypes = []any{
 	(*StartProcessRequest)(nil),    // 0: workflow.StartProcessRequest

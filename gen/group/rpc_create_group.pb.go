@@ -135,7 +135,7 @@ const file_group_rpc_create_group_proto_rawDesc = "" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\"9\n" +
 	"\x13CreateGroupResponse\x12\"\n" +
-	"\x05group\x18\x01 \x01(\v2\f.group.GroupR\x05groupB7Z5github.com/nguyenngocvien/vcore-stack/proto/gen/groupb\x06proto3"
+	"\x05group\x18\x01 \x01(\v2\f.group.GroupR\x05groupB7Z5github.com/nguyenngocvien/vcore-stack-proto/gen/groupb\x06proto3"
 
 var (
 	file_group_rpc_create_group_proto_rawDescOnce sync.Once

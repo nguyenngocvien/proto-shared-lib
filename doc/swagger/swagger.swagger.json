@@ -1,0 +1,2184 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "V-CORE API Services",
+    "description": "This is the gRPC-Gateway HTTP API for the VCore Stack service.",
+    "version": "1.0",
+    "contact": {
+      "name": "Vien Nguyen",
+      "url": "https://github.com/nguyenngocvien/vcore-stack",
+      "email": "vien.nguyen.12067@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/task/{taskId}/assign": {
+      "post": {
+        "summary": "Assign task to user or group",
+        "description": "Assigns task to a specific user or group.",
+        "operationId": "WorkflowService_AssignTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/workflowAssignTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WorkflowServiceAssignTaskBody"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/api/task/{taskId}/claim": {
+      "post": {
+        "summary": "Claim a task",
+        "description": "User claims a task to work on it.",
+        "operationId": "WorkflowService_ClaimTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/workflowClaimTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WorkflowServiceClaimTaskBody"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/api/task/{taskId}/complete": {
+      "post": {
+        "summary": "Complete a task",
+        "description": "Completes a task with user-provided data.",
+        "operationId": "WorkflowService_CompleteTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/workflowCompleteTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WorkflowServiceCompleteTaskBody"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/api/tasks": {
+      "get": {
+        "summary": "Get tasks assigned to user or group",
+        "description": "Returns tasks assigned to the given user or their groups.",
+        "operationId": "WorkflowService_GetTasks",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/workflowGetTasksResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "groupIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/api/tasks/history": {
+      "get": {
+        "summary": "Get task history for user",
+        "description": "Returns completed tasks of user.",
+        "operationId": "WorkflowService_GetTaskHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/workflowTaskHistoryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/api/workflow/start": {
+      "post": {
+        "summary": "Start a new workflow process",
+        "description": "Starts a Temporal workflow using the given process ID and variables.",
+        "operationId": "WorkflowService_StartProcess",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/workflowStartProcessResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/workflowStartProcessRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Workflow"
+        ]
+      }
+    },
+    "/api/workflow/{workflowId}/cancel": {
+      "delete": {
+        "summary": "Cancel a workflow",
+        "description": "Cancels a running workflow.",
+        "operationId": "WorkflowService_CancelWorkflow",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/workflowCancelWorkflowResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workflowId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Workflow"
+        ]
+      }
+    },
+    "/api/workflow/{workflowId}/status": {
+      "get": {
+        "summary": "Get workflow status",
+        "description": "Fetch current status and step of workflow execution.",
+        "operationId": "WorkflowService_GetWorkflowStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/workflowWorkflowStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "workflowId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Workflow"
+        ]
+      }
+    },
+    "/v1/chats/group": {
+      "post": {
+        "summary": "Create a group chat",
+        "description": "Creates a new group chat with the given name, type, and list of participant user IDs",
+        "operationId": "ChatService_CreateGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chatCreateGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/chatCreateGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Chat"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/chats/search": {
+      "get": {
+        "summary": "Search users and messages",
+        "description": "Return list of user and messages",
+        "operationId": "ChatService_SearchChat",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chatSearchChatResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Chat"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/chats/user/{userId}": {
+      "get": {
+        "summary": "Get all chat rooms by user ID",
+        "description": "Returns chat rooms including participants, unread message count, and last message",
+        "operationId": "ChatService_GetChatsByUserID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chatGetChatsByUserIDResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Chat"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/chats/{chatId}/messages": {
+      "get": {
+        "summary": "Get messages in a chat",
+        "description": "Fetches a paginated list of messages by chat ID. Returns messages in reverse chronological order.",
+        "operationId": "ChatService_GetMessagesByChatID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chatGetMessagesByChatIDResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "chatId",
+            "description": "From path",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "description": "From query",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "description": "From query",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Chat"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/groups": {
+      "get": {
+        "summary": "Get groups",
+        "description": "Retrieve a list of all groups",
+        "operationId": "GroupService_GetGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/groupSearchGroupsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Group"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create group",
+        "description": "Create a new group",
+        "operationId": "GroupService_CreateGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/groupCreateGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/groupCreateGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Group"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/groups/{groupId}/members": {
+      "get": {
+        "summary": "Get group members",
+        "description": "Retrieve a list of members for a specific group",
+        "operationId": "GroupService_GetGroupMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/groupGetGroupMembersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Group"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Add members to group",
+        "description": "Add one or more members to a specific group",
+        "operationId": "GroupService_AddMembersToGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/groupAddMembersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GroupServiceAddMembersToGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "Group"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/groups/{id}": {
+      "delete": {
+        "summary": "Delete group",
+        "description": "Delete a group by its ID",
+        "operationId": "GroupService_DeleteGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/groupDeleteGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Group"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/messages": {
+      "get": {
+        "summary": "Get messages in a chat",
+        "description": "Fetches a paginated list of messages by chat ID. Returns messages in reverse chronological order.",
+        "operationId": "ChatService_GetMessagesByChatID2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chatGetMessagesByChatIDResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "chatId",
+            "description": "From path",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "description": "From query",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "offset",
+            "description": "From query",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Chat"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Send a chat message",
+        "description": "Sends a message from a user to another user and returns confirmation.",
+        "operationId": "ChatService_SendMessage",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chatSendMessageResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/chatSendMessageRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Message"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/messages/search": {
+      "get": {
+        "summary": "Search messages",
+        "description": "Search for messages containing a given keyword within chats the user participates in.",
+        "operationId": "ChatService_SearchMessages",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/chatSearchMessagesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "q",
+            "description": "Query string (search keyword)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Message"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/users": {
+      "get": {
+        "summary": "Get list of users",
+        "description": "Use this API to retrieve list of users",
+        "operationId": "UserService_GetUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userQueryUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "firstName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "lastName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "memberOfGroup",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "firstResult",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "maxResult",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create new user",
+        "description": "Use this API to create a new user",
+        "operationId": "UserService_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userCreateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userCreateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/users/login": {
+      "post": {
+        "summary": "Login user",
+        "description": "Use this API to login user",
+        "operationId": "UserService_Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userLoginResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userLoginRequest"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v1/users/logout": {
+      "post": {
+        "summary": "Logout user",
+        "description": "Use this API to logout user",
+        "operationId": "UserService_Logout",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userLogoutResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userLogoutRequest"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v1/users/register": {
+      "post": {
+        "summary": "Register a new user",
+        "description": "Creates a new user account with the provided credentials and information.",
+        "operationId": "UserService_Register",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userRegisterResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userRegisterRequest"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v1/users/search": {
+      "post": {
+        "summary": "Search users",
+        "description": "Search users by query (username, full name, email, or phone number)",
+        "operationId": "UserService_SearchUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userSearchUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userSearchUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/users/verify": {
+      "get": {
+        "summary": "Verify email address",
+        "description": "Use this API to verify user email.",
+        "operationId": "UserService_VerifyEmail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userVerifyEmailResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "token",
+            "description": "mã xác thực từ email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      },
+      "post": {
+        "summary": "Verify email address",
+        "description": "Use this API to verify user email.",
+        "operationId": "UserService_VerifyEmail2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userVerifyEmailResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userVerifyEmailRequest"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v1/users/{username}/avatar": {
+      "get": {
+        "summary": "Get user avatar",
+        "description": "Use this API to retrieve user avatar",
+        "operationId": "UserService_GetAvatar",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userGetAvatarResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "description": "The user ID (personId)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update user avatar",
+        "description": "Use this API to update user avatar",
+        "operationId": "UserService_UpdateAvatar",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUpdateAvatarResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceUpdateAvatarBody"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/users/{username}/credentials": {
+      "patch": {
+        "summary": "Update user credentials",
+        "description": "Use this API to update user credentials",
+        "operationId": "UserService_ChangePassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userChangePasswordResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceChangePasswordBody"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/users/{username}/profile": {
+      "get": {
+        "summary": "Get user information",
+        "description": "Use this API to retrieve user information",
+        "operationId": "UserService_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userGetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Update user",
+        "description": "Use this API to update user",
+        "operationId": "UserService_UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUpdateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceUpdateUserBody"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GroupServiceAddMembersToGroupBody": {
+      "type": "object",
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserServiceChangePasswordBody": {
+      "type": "object",
+      "properties": {
+        "newPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceUpdateAvatarBody": {
+      "type": "object",
+      "properties": {
+        "avatar": {
+          "type": "string",
+          "format": "byte",
+          "title": "The avatar file content as a byte stream"
+        },
+        "fileName": {
+          "type": "string",
+          "title": "The file name"
+        }
+      }
+    },
+    "UserServiceUpdateUserBody": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "WorkflowServiceAssignTaskBody": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "groupId": {
+          "type": "string",
+          "title": "optional"
+        }
+      }
+    },
+    "WorkflowServiceClaimTaskBody": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "WorkflowServiceCompleteTaskBody": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "chatChat": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "chatChatMessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sender": {
+          "type": "string"
+        },
+        "receiver": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "sentAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "chatChatResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "lastMessage": {
+          "$ref": "#/definitions/chatMessageResponse"
+        },
+        "unreadCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/chatUserResponse"
+          }
+        }
+      }
+    },
+    "chatChatUser": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        }
+      }
+    },
+    "chatCreateGroupRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "title": "expected to be \"group\""
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "chatCreateGroupResponse": {
+      "type": "object",
+      "properties": {
+        "chat": {
+          "$ref": "#/definitions/chatChat"
+        }
+      }
+    },
+    "chatGetChatsByUserIDResponse": {
+      "type": "object",
+      "properties": {
+        "chats": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/chatChatResponse"
+          }
+        }
+      }
+    },
+    "chatGetMessagesByChatIDResponse": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/chatMessage"
+          }
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "chatMessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "chatId": {
+          "type": "string"
+        },
+        "senderId": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "title": "ISO 8601 string"
+        }
+      }
+    },
+    "chatMessageResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "senderId": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "title": "ISO 8601 format (RFC3339)"
+        }
+      }
+    },
+    "chatSearchChatResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/chatChatUser"
+          }
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/chatChatMessage"
+          }
+        }
+      }
+    },
+    "chatSearchMessagesResponse": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/chatSearchedMessage"
+          }
+        }
+      }
+    },
+    "chatSearchedMessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "chatId": {
+          "type": "string"
+        },
+        "chatName": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "title": "ISO format"
+        }
+      }
+    },
+    "chatSendMessageRequest": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/chatChatMessage"
+        }
+      }
+    },
+    "chatSendMessageResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "chatUserResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "groupAddMembersResponse": {
+      "type": "object"
+    },
+    "groupCreateGroupRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "groupCreateGroupResponse": {
+      "type": "object",
+      "properties": {
+        "group": {
+          "$ref": "#/definitions/groupGroup"
+        }
+      }
+    },
+    "groupDeleteGroupResponse": {
+      "type": "object"
+    },
+    "groupGetGroupMembersResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "groupGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "groupSearchGroupsResponse": {
+      "type": "object",
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/groupGroup"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "userChangePasswordResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/userUser"
+        }
+      }
+    },
+    "userCreateUserRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "userCreateUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/userUser"
+        }
+      }
+    },
+    "userGetAvatarResponse": {
+      "type": "object",
+      "properties": {
+        "avatar": {
+          "type": "string",
+          "format": "byte",
+          "title": "The avatar image content as a byte stream"
+        },
+        "contentType": {
+          "type": "string",
+          "title": "The content type of the image (e.g., image/jpeg)"
+        }
+      }
+    },
+    "userGetUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/userUser"
+        }
+      }
+    },
+    "userLoginRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "userLoginResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/userUser"
+        },
+        "sessionId": {
+          "type": "string"
+        },
+        "accessToken": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "accessTokenExpiresAt": {
+          "type": "string"
+        },
+        "refreshTokenExpiresAt": {
+          "type": "string"
+        }
+      }
+    },
+    "userLogoutRequest": {
+      "type": "object",
+      "properties": {
+        "refreshToken": {
+          "type": "string"
+        }
+      }
+    },
+    "userLogoutResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "userQueryUserResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/userUser"
+          }
+        }
+      }
+    },
+    "userRegisterRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "userRegisterResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/userUser"
+        }
+      }
+    },
+    "userSearchUserRequest": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        }
+      }
+    },
+    "userSearchUserResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/userUser"
+          }
+        }
+      }
+    },
+    "userUpdateAvatarResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "userUpdateUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/userUser"
+        }
+      }
+    },
+    "userUser": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "passwordChangedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "userVerifyEmailRequest": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "title": "mã xác thực từ email"
+        }
+      }
+    },
+    "userVerifyEmailResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "title": "ví dụ: \"Email verified successfully\""
+        }
+      }
+    },
+    "workflowAssignTaskResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "workflowCancelWorkflowResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "workflowClaimTaskResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "workflowCompleteTaskResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "workflowGetTasksResponse": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/workflowTaskInfo"
+          }
+        }
+      }
+    },
+    "workflowStartProcessRequest": {
+      "type": "object",
+      "properties": {
+        "processId": {
+          "type": "string"
+        },
+        "businessKey": {
+          "type": "string",
+          "title": "optional"
+        },
+        "variables": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "workflowStartProcessResponse": {
+      "type": "object",
+      "properties": {
+        "workflowId": {
+          "type": "string"
+        }
+      }
+    },
+    "workflowTaskHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/workflowTaskInfo"
+          }
+        }
+      }
+    },
+    "workflowTaskInfo": {
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string"
+        },
+        "workflowId": {
+          "type": "string"
+        },
+        "stepName": {
+          "type": "string"
+        },
+        "assignedTo": {
+          "type": "string"
+        },
+        "candidateUsers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "candidateGroups": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "type": "string",
+          "title": "e.g., \"NEW\", \"CLAIMED\", \"COMPLETED\""
+        }
+      }
+    },
+    "workflowWorkflowStatusResponse": {
+      "type": "object",
+      "properties": {
+        "runId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "title": "e.g., RUNNING, COMPLETED, FAILED"
+        },
+        "currentStep": {
+          "type": "string",
+          "title": "optional"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "BearerAuth": {
+      "type": "apiKey",
+      "description": "JWT token using the Bearer scheme. Example: 'Authorization: Bearer {token}'",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ]
+}

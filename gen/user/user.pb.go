@@ -137,7 +137,7 @@ const file_user_user_proto_rawDesc = "" +
 	"\fphone_number\x18\x06 \x01(\tR\vphoneNumber\x12J\n" +
 	"\x13password_changed_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x11passwordChangedAt\x129\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAtB6Z4github.com/nguyenngocvien/vcore-stack/proto/gen/userb\x06proto3"
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAtB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/userb\x06proto3"
 
 var (
 	file_user_user_proto_rawDescOnce sync.Once
