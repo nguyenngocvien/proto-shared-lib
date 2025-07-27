@@ -201,7 +201,7 @@ const file_user_rpc_query_users_proto_rawDesc = "" +
 	" \x01(\x05R\tmaxResult\"5\n" +
 	"\x11QueryUserResponse\x12 \n" +
 	"\x05users\x18\x01 \x03(\v2\n" +
-	".user.UserR\x05usersB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/userb\x06proto3"
+	".user.UserR\x05usersB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_query_users_proto_rawDescOnce sync.Once

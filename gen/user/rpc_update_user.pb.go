@@ -164,7 +164,7 @@ const file_user_rpc_update_user_proto_rawDesc = "" +
 	"\fphone_number\x18\x06 \x01(\tR\vphoneNumber\"4\n" +
 	"\x12UpdateUserResponse\x12\x1e\n" +
 	"\x04user\x18\x01 \x01(\v2\n" +
-	".user.UserR\x04userB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/userb\x06proto3"
+	".user.UserR\x04userB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_update_user_proto_rawDescOnce sync.Once

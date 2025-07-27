@@ -140,7 +140,7 @@ const file_workflow_rpc_start_process_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"7\n" +
 	"\x14StartProcessResponse\x12\x1f\n" +
 	"\vworkflow_id\x18\x01 \x01(\tR\n" +
-	"workflowIdB9Z7github.com/nguyenngocvien/vcore-stack-proto/gen/worflowb\x06proto3"
+	"workflowIdB9Z7github.com/nguyenngocvien/proto-shared-lib/gen/worflowb\x06proto3"
 
 var (
 	file_workflow_rpc_start_process_proto_rawDescOnce sync.Once

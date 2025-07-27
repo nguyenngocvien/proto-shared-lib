@@ -199,7 +199,7 @@ const file_chat_rpc_search_messages_proto_rawDesc = "" +
 	"\acontent\x18\x04 \x01(\tR\acontent\x12\x1c\n" +
 	"\ttimestamp\x18\x05 \x01(\tR\ttimestamp\"K\n" +
 	"\x16SearchMessagesResponse\x121\n" +
-	"\bmessages\x18\x01 \x03(\v2\x15.chat.SearchedMessageR\bmessagesB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/chatb\x06proto3"
+	"\bmessages\x18\x01 \x03(\v2\x15.chat.SearchedMessageR\bmessagesB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
 
 var (
 	file_chat_rpc_search_messages_proto_rawDescOnce sync.Once

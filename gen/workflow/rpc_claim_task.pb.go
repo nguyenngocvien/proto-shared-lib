@@ -126,7 +126,7 @@ const file_workflow_rpc_claim_task_proto_rawDesc = "" +
 	"\atask_id\x18\x01 \x01(\tR\x06taskId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\"+\n" +
 	"\x11ClaimTaskResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06statusB9Z7github.com/nguyenngocvien/vcore-stack-proto/gen/worflowb\x06proto3"
+	"\x06status\x18\x01 \x01(\tR\x06statusB9Z7github.com/nguyenngocvien/proto-shared-lib/gen/worflowb\x06proto3"
 
 var (
 	file_workflow_rpc_claim_task_proto_rawDescOnce sync.Once

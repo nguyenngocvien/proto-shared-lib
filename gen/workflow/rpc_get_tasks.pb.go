@@ -126,7 +126,7 @@ const file_workflow_rpc_get_tasks_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1b\n" +
 	"\tgroup_ids\x18\x02 \x03(\tR\bgroupIds\"<\n" +
 	"\x10GetTasksResponse\x12(\n" +
-	"\x05tasks\x18\x01 \x03(\v2\x12.workflow.TaskInfoR\x05tasksB9Z7github.com/nguyenngocvien/vcore-stack-proto/gen/worflowb\x06proto3"
+	"\x05tasks\x18\x01 \x03(\v2\x12.workflow.TaskInfoR\x05tasksB9Z7github.com/nguyenngocvien/proto-shared-lib/gen/worflowb\x06proto3"
 
 var (
 	file_workflow_rpc_get_tasks_proto_rawDescOnce sync.Once

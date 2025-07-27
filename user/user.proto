@@ -4,7 +4,7 @@ package user;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/nguyenngocvien/vcore-stack-proto/gen/user";
+option go_package = "github.com/nguyenngocvien/proto-shared-lib/gen/user";
 
 message User {
     string username = 1;

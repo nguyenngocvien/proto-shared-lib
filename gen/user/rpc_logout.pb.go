@@ -117,7 +117,7 @@ const file_user_rpc_logout_proto_rawDesc = "" +
 	"\rLogoutRequest\x12#\n" +
 	"\rrefresh_token\x18\x01 \x01(\tR\frefreshToken\"*\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessageB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/userb\x06proto3"
+	"\amessage\x18\x01 \x01(\tR\amessageB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_logout_proto_rawDescOnce sync.Once

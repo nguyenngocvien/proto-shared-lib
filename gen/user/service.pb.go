@@ -79,7 +79,7 @@ const file_user_service_proto_rawDesc = "" +
 	"\x04User\x12\fSearch users\x1aCSearch users by query (username, full name, email, or phone number)b\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/users/searchB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/userb\x06proto3"
+	"BearerAuth\x12\x00\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/users/searchB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var file_user_service_proto_goTypes = []any{
 	(*RegisterRequest)(nil),        // 0: user.RegisterRequest

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package chat;
 
-option go_package = "github.com/nguyenngocvien/vcore-stack-proto/gen/chat";
+option go_package = "github.com/nguyenngocvien/proto-shared-lib/gen/chat";
 
 import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";

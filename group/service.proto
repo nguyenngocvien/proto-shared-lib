@@ -11,7 +11,7 @@ import "group/rpc_delete_group.proto";
 import "group/rpc_add_members.proto";
 import "group/rpc_get_group_members.proto";
 
-option go_package = "github.com/nguyenngocvien/vcore-stack-proto/gen/group";
+option go_package = "github.com/nguyenngocvien/proto-shared-lib/gen/group";
 
 service GroupService {
   rpc GetGroups (SearchGroupsRequest) returns (SearchGroupsResponse) {

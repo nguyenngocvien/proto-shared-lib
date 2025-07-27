@@ -129,7 +129,7 @@ const file_workflow_rpc_complete_task_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\".\n" +
 	"\x14CompleteTaskResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06statusB9Z7github.com/nguyenngocvien/vcore-stack-proto/gen/worflowb\x06proto3"
+	"\x06status\x18\x01 \x01(\tR\x06statusB9Z7github.com/nguyenngocvien/proto-shared-lib/gen/worflowb\x06proto3"
 
 var (
 	file_workflow_rpc_complete_task_proto_rawDescOnce sync.Once

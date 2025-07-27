@@ -55,7 +55,7 @@ const file_group_service_proto_rawDesc = "" +
 	"\x05Group\x12\x11Get group members\x1a/Retrieve a list of members for a specific groupb\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1/groups/{group_id}/membersB7Z5github.com/nguyenngocvien/vcore-stack-proto/gen/groupb\x06proto3"
+	"BearerAuth\x12\x00\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1/groups/{group_id}/membersB7Z5github.com/nguyenngocvien/proto-shared-lib/gen/groupb\x06proto3"
 
 var file_group_service_proto_goTypes = []any{
 	(*SearchGroupsRequest)(nil),     // 0: group.SearchGroupsRequest

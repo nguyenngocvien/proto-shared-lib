@@ -1,4 +1,4 @@
-module github.com/nguyenngocvien/vcore-stack-proto
+module github.com/nguyenngocvien/proto-shared-lib
 
 go 1.23.2
 

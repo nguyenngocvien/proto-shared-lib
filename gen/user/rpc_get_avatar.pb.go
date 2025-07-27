@@ -126,7 +126,7 @@ const file_user_rpc_get_avatar_proto_rawDesc = "" +
 	"\busername\x18\x01 \x01(\tR\busername\"N\n" +
 	"\x11GetAvatarResponse\x12\x16\n" +
 	"\x06avatar\x18\x01 \x01(\fR\x06avatar\x12!\n" +
-	"\fcontent_type\x18\x02 \x01(\tR\vcontentTypeB6Z4github.com/nguyenngocvien/vcore-stack-proto/gen/userb\x06proto3"
+	"\fcontent_type\x18\x02 \x01(\tR\vcontentTypeB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_get_avatar_proto_rawDescOnce sync.Once
