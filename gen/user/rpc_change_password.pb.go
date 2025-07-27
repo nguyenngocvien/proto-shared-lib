@@ -127,7 +127,7 @@ const file_user_rpc_change_password_proto_rawDesc = "" +
 	"\fnew_password\x18\x02 \x01(\tR\vnewPassword\"8\n" +
 	"\x16ChangePasswordResponse\x12\x1e\n" +
 	"\x04user\x18\x01 \x01(\v2\n" +
-	".user.UserR\x04userB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
+	".user.UserR\x04userB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_change_password_proto_rawDescOnce sync.Once

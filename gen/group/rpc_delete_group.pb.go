@@ -108,7 +108,7 @@ const file_group_rpc_delete_group_proto_rawDesc = "" +
 	"\x1cgroup/rpc_delete_group.proto\x12\x05group\"$\n" +
 	"\x12DeleteGroupRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\"\x15\n" +
-	"\x13DeleteGroupResponseB7Z5github.com/nguyenngocvien/proto-shared-lib/gen/groupb\x06proto3"
+	"\x13DeleteGroupResponseB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/groupb\x06proto3"
 
 var (
 	file_group_rpc_delete_group_proto_rawDescOnce sync.Once

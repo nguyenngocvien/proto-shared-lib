@@ -98,7 +98,7 @@ const file_group_group_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
 	"\x04type\x18\x03 \x01(\tR\x04type\x12 \n" +
-	"\vdescription\x18\x04 \x01(\tR\vdescriptionB7Z5github.com/nguyenngocvien/proto-shared-lib/gen/groupb\x06proto3"
+	"\vdescription\x18\x04 \x01(\tR\vdescriptionB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/groupb\x06proto3"
 
 var (
 	file_group_group_proto_rawDescOnce sync.Once

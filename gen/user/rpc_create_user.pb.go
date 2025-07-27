@@ -173,7 +173,7 @@ const file_user_rpc_create_user_proto_rawDesc = "" +
 	"\fphone_number\x18\a \x01(\tR\vphoneNumber\"4\n" +
 	"\x12CreateUserResponse\x12\x1e\n" +
 	"\x04user\x18\x01 \x01(\v2\n" +
-	".user.UserR\x04userB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
+	".user.UserR\x04userB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_create_user_proto_rawDescOnce sync.Once

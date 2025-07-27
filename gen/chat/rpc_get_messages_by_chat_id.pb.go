@@ -235,7 +235,7 @@ const file_chat_rpc_get_messages_by_chat_id_proto_rawDesc = "" +
 	"\x1bGetMessagesByChatIDResponse\x12)\n" +
 	"\bmessages\x18\x01 \x03(\v2\r.chat.MessageR\bmessages\x12\x14\n" +
 	"\x05limit\x18\x02 \x01(\x05R\x05limit\x12\x16\n" +
-	"\x06offset\x18\x03 \x01(\x05R\x06offsetB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
+	"\x06offset\x18\x03 \x01(\x05R\x06offsetB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
 
 var (
 	file_chat_rpc_get_messages_by_chat_id_proto_rawDescOnce sync.Once

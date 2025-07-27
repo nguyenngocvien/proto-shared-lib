@@ -58,7 +58,7 @@ const file_chat_service_proto_rawDesc = "" +
 	"\aMessage\x12\x0fSearch messages\x1aUSearch for messages containing a given keyword within chats the user participates in.b\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/messages/searchB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
+	"BearerAuth\x12\x00\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/messages/searchB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
 
 var file_chat_service_proto_goTypes = []any{
 	(*SearchChatRequest)(nil),           // 0: chat.SearchChatRequest

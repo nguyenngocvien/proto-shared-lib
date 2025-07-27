@@ -200,7 +200,7 @@ const file_chat_rpc_create_group_proto_rawDesc = "" +
 	"\x04type\x18\x03 \x01(\tR\x04type\"5\n" +
 	"\x13CreateGroupResponse\x12\x1e\n" +
 	"\x04chat\x18\x01 \x01(\v2\n" +
-	".chat.ChatR\x04chatB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
+	".chat.ChatR\x04chatB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
 
 var (
 	file_chat_rpc_create_group_proto_rawDescOnce sync.Once

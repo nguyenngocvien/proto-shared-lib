@@ -25,7 +25,7 @@ var File_openapi_openapi_options_proto protoreflect.FileDescriptor
 
 const file_openapi_openapi_options_proto_rawDesc = "" +
 	"\n" +
-	"\x1dopenapi/openapi_options.proto\x12\aopenapi\x1a.protoc-gen-openapiv2/options/annotations.protoB\xc9\x03\x92A\x90\x03\x12\xe1\x01\n" +
+	"\x1dopenapi/openapi_options.proto\x12\aopenapi\x1a.protoc-gen-openapiv2/options/annotations.protoB\xc8\x03\x92A\x90\x03\x12\xe1\x01\n" +
 	"\x13V-CORE API Services\x12>This is the gRPC-Gateway HTTP API for the VCore Stack service.\"Y\n" +
 	"\vVien Nguyen\x12-https://github.com/nguyenngocvien/vcore-stack\x1a\x1bvien.nguyen.12067@gmail.com**\n" +
 	"\x03MIT\x12#https://opensource.org/licenses/MIT2\x031.0*\x02\x01\x022\x10application/json:\x10application/jsonZp\n" +
@@ -34,7 +34,7 @@ const file_openapi_openapi_options_proto_rawDesc = "" +
 	"BearerAuth\x12`\b\x02\x12KJWT token using the Bearer scheme. Example: 'Authorization: Bearer {token}'\x1a\rAuthorization \x02b\x10\n" +
 	"\x0e\n" +
 	"\n" +
-	"BearerAuth\x12\x00Z3github.com/nguyenngocvien/proto-shared-lib/openapib\x06proto3"
+	"BearerAuth\x12\x00Z2github.com/nguyenngocvien/proto-shared-lib/openapib\x06proto3"
 
 var file_openapi_openapi_options_proto_goTypes = []any{}
 var file_openapi_openapi_options_proto_depIdxs = []int32{

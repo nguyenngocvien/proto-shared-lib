@@ -117,7 +117,7 @@ const file_user_rpc_verify_email_proto_rawDesc = "" +
 	"\x12VerifyEmailRequest\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\"/\n" +
 	"\x13VerifyEmailResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessageB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
+	"\amessage\x18\x01 \x01(\tR\amessageB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_verify_email_proto_rawDescOnce sync.Once

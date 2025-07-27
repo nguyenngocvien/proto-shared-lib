@@ -171,7 +171,7 @@ const file_chat_rpc_chat_proto_rawDesc = "" +
 	"\x06sender\x18\x02 \x01(\tR\x06sender\x12\x1a\n" +
 	"\breceiver\x18\x03 \x01(\tR\breceiver\x12\x18\n" +
 	"\acontent\x18\x04 \x01(\tR\acontent\x12\x17\n" +
-	"\asent_at\x18\x05 \x01(\x03R\x06sentAtB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
+	"\asent_at\x18\x05 \x01(\x03R\x06sentAtB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
 
 var (
 	file_chat_rpc_chat_proto_rawDescOnce sync.Once

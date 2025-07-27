@@ -118,7 +118,7 @@ const file_workflow_rpc_cancel_workflow_proto_rawDesc = "" +
 	"\vworkflow_id\x18\x01 \x01(\tR\n" +
 	"workflowId\"0\n" +
 	"\x16CancelWorkflowResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06statusB9Z7github.com/nguyenngocvien/proto-shared-lib/gen/worflowb\x06proto3"
+	"\x06status\x18\x01 \x01(\tR\x06statusB8Z6github.com/nguyenngocvien/proto-shared-lib/gen/worflowb\x06proto3"
 
 var (
 	file_workflow_rpc_cancel_workflow_proto_rawDescOnce sync.Once

@@ -118,7 +118,7 @@ const file_user_rpc_search_users_proto_rawDesc = "" +
 	"\x05query\x18\x01 \x01(\tR\x05query\"6\n" +
 	"\x12SearchUserResponse\x12 \n" +
 	"\x05users\x18\x01 \x03(\v2\n" +
-	".user.UserR\x05usersB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
+	".user.UserR\x05usersB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/userb\x06proto3"
 
 var (
 	file_user_rpc_search_users_proto_rawDescOnce sync.Once

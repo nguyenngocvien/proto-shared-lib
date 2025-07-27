@@ -126,7 +126,7 @@ const file_chat_rpc_search_proto_rawDesc = "" +
 	"\x05query\x18\x01 \x01(\tR\x05query\"i\n" +
 	"\x12SearchChatResponse\x12$\n" +
 	"\x05users\x18\x01 \x03(\v2\x0e.chat.ChatUserR\x05users\x12-\n" +
-	"\bmessages\x18\x02 \x03(\v2\x11.chat.ChatMessageR\bmessagesB6Z4github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
+	"\bmessages\x18\x02 \x03(\v2\x11.chat.ChatMessageR\bmessagesB5Z3github.com/nguyenngocvien/proto-shared-lib/gen/chatb\x06proto3"
 
 var (
 	file_chat_rpc_search_proto_rawDescOnce sync.Once
